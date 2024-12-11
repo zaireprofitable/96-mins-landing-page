@@ -6,7 +6,7 @@ export default function Home() {
   const nextSessionDate = new Date('2025-01-13T07:00:00-05:00')
 
   return (
-    <div className="min-h-screen h-full text-white relative flex flex-col overflow-x-hidden">
+    <div className="min-h-screen h-full text-white flex flex-col overflow-x-hidden">
       <div className="pt-6 pb-4 text-center">
         <h2 className="font-sans text-2xl font-extrabold tracking-[-1px]">96 Mins</h2>
         <Link
