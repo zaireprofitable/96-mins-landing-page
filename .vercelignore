@@ -3,3 +3,7 @@ node_modules
 .turbo
 .env.local
 .env
+.git
+README.md
+*.log
+.DS_Store
