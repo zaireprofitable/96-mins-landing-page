@@ -16,10 +16,6 @@ export function EmailForm() {
     setIsSubmitting(true)
 
     try {
-      // Log Supabase connection info (without exposing sensitive data)
-      console.log('Supabase URL configured:', !!process.env.NEXT_PUBLIC_SUPABASE_URL)
-      console.log('Supabase Key configured:', !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
-      
       console.log('Attempting to insert:', email)
       const { error, data } = await supabase
         .from('waitlist')
@@ -34,12 +30,7 @@ export function EmailForm() {
         .select()
 
       if (error) {
-        console.error('Supabase error:', {
-          message: error.message,
-          code: error.code,
-          details: error.details,
-          hint: error.hint
-        })
+        console.error('Supabase error:', error)
         throw error
       }
 
@@ -51,16 +42,10 @@ export function EmailForm() {
       })
       setEmail('')
     } catch (error: any) {
-      console.error('Detailed error:', {
-        name: error?.name,
-        message: error?.message,
-        code: error?.code,
-        details: error?.details,
-        hint: error?.hint
-      })
+      console.error('Error:', error)
       toast({
         title: "❌ Error",
-        description: "Something went wrong. Please try again.",
+        description: error?.message || "Something went wrong. Please try again.",
         variant: "destructive",
         className: "bg-white text-black border-none text-center",
       })
