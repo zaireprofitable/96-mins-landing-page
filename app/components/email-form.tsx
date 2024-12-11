@@ -47,7 +47,7 @@ export function EmailForm() {
       toast({
         title: "🎉 Success!",
         description: "You're on the list! See you soon.",
-        className: "bg-white text-black border-none",
+        className: "bg-white text-black border-none text-center",
       })
       setEmail('')
     } catch (error: any) {
@@ -62,7 +62,7 @@ export function EmailForm() {
         title: "❌ Error",
         description: "Something went wrong. Please try again.",
         variant: "destructive",
-        className: "bg-white text-black border-none",
+        className: "bg-white text-black border-none text-center",
       })
     } finally {
       setIsSubmitting(false)
