@@ -26,7 +26,7 @@ export default function Home() {
             <span className="absolute -right-8 -bottom-6 text-2xl rotate-[-15deg] opacity-60">✦</span>
           </h1>
           <div className="flex justify-center px-4">
-            <p className="text-[18px] mb-6 text-white/90 font-light w-full md:w-3/5">
+            <p className="text-[18px] mb-6 text-white/90 w-full md:w-3/5">
               Meet and share work or career challenges with 5 others who get it. Walk away with real solutions.
             </p>
           </div>
