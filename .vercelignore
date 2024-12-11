@@ -7,3 +7,4 @@ node_modules
 README.md
 *.log
 .DS_Store
+public/fonts/PkgTTF-Iosevka-28.0.3.zip

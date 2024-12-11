@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { adminDb } from '@/lib/firebase/admin';
+import { supabase } from '@/lib/supabase/client';
 
 export async function POST(request: Request) {
   try {
@@ -12,13 +12,18 @@ export async function POST(request: Request) {
       );
     }
 
-    // Add to Firestore with additional metadata
-    await adminDb.collection('waitlist').add({
-      email,
-      timestamp: new Date().toISOString(),
-      source: 'website',
-      status: 'pending'
-    });
+    const { error } = await supabase
+      .from('waitlist')
+      .insert([
+        { 
+          email,
+          created_at: new Date().toISOString(),
+          source: 'website',
+          status: 'pending'
+        }
+      ]);
+
+    if (error) throw error;
 
     return NextResponse.json(
       { message: 'Successfully added to waitlist' },
