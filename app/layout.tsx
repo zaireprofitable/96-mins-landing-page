@@ -52,7 +52,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body className="min-h-screen max-w-[100vw] overflow-x-hidden bg-background font-sans antialiased">
         {children}
         <Toaster />
       </body>

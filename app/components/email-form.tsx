@@ -71,23 +71,25 @@ export function EmailForm() {
 
   return (
     <div className="flex justify-center">
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-[90%] sm:w-[80%] max-w-2xl">
-        <Input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="h-12 bg-white/10 border-white/60 text-white placeholder:text-white/60 focus-visible:ring-white/90"
-        />
-        <Button 
-          type="submit"
-          disabled={isSubmitting}
-          className="h-12 whitespace-nowrap px-8 bg-white text-black hover:bg-white/90 font-medium"
-        >
-          {isSubmitting ? 'Joining...' : 'Join waitlist'}
-        </Button>
-      </form>
+      <div className="max-w-md mx-auto w-full px-4">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full">
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="h-12 bg-white/10 border-white/60 text-white placeholder:text-white/60 focus-visible:ring-white/90"
+          />
+          <Button 
+            type="submit"
+            disabled={isSubmitting}
+            className="h-12 whitespace-nowrap px-8 bg-white text-black hover:bg-white/90 font-medium"
+          >
+            {isSubmitting ? 'Joining...' : 'Join waitlist'}
+          </Button>
+        </form>
+      </div>
     </div>
   )
 }

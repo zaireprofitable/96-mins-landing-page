@@ -12,6 +12,15 @@ export async function POST(request: Request) {
       );
     }
 
+    // Check if we're using the mock client (no env vars)
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      console.log('Development mode: Email submission simulated:', email);
+      return NextResponse.json(
+        { message: 'Successfully added to waitlist (Development Mode)' },
+        { status: 200 }
+      );
+    }
+
     const { error } = await supabase
       .from('waitlist')
       .insert([
