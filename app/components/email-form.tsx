@@ -79,12 +79,12 @@ export function EmailForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="h-12 bg-white/10 border-white/60 text-white placeholder:text-white/60 focus-visible:ring-white/90"
+            className="h-12 bg-[#E32636]/10 border-[#E32636]/60 text-white placeholder:text-white/60 focus-visible:ring-[#E32636]/90"
           />
           <Button 
             type="submit"
             disabled={isSubmitting}
-            className="h-12 whitespace-nowrap px-8 bg-white text-black hover:bg-white/90 font-medium"
+            className="h-12 whitespace-nowrap px-8 bg-[#E32636] text-white hover:bg-[#E32636]/90 font-medium"
           >
             {isSubmitting ? 'Joining...' : 'Join waitlist'}
           </Button>

@@ -6,7 +6,7 @@ export default function Home() {
   const nextSessionDate = new Date('2025-01-13T07:00:00-05:00')
 
   return (
-    <div className="min-h-screen h-full bg-[#E32636] bg-texture bg-blend-multiply text-white relative flex flex-col overflow-x-hidden">
+    <div className="min-h-screen h-full text-white relative flex flex-col overflow-x-hidden">
       <div className="pt-6 pb-4 text-center">
         <h2 className="font-sans text-2xl font-extrabold tracking-[-1px]">96 Mins</h2>
         <Link
@@ -38,7 +38,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white">
-              Currently in NYC only 🗽
+              Currently in NYC 🗽
             </span>
           </div>
         </div>
