@@ -37,3 +37,6 @@ next-env.d.ts
 
 # turbo
 .turbo
+
+# Large files
+public/fonts/PkgTTF-Iosevka-28.0.3.zip
