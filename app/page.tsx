@@ -2,89 +2,117 @@
 
 import { EmailForm } from './components/email-form'
 import { CountdownClock } from './components/countdown-clock'
+import { RotatingAvatars } from "./components/rotating-avatars"
 import Link from 'next/link'
 import { LinkedinLogo, MapPinArea } from "@phosphor-icons/react"
+import { useState, useEffect } from 'react'
 
-export default function Home() {
+const avatarImages = [
+  "https://ucarecdn.com/83017205-d153-469e-aff5-bde35749a826/9.png",
+  "https://ucarecdn.com/4d806a12-a5cb-46c9-89a0-86cbf608ae78/10.png",
+  "https://ucarecdn.com/6cb09092-da3e-43f4-9225-5b904997bedc/8.png",
+  "https://ucarecdn.com/07907f16-e7a8-4a67-8ab5-3c49731acf6f/4.png",
+  "https://ucarecdn.com/ca49b19a-9bac-4488-82e5-a4aa27b71aa9/3.png",
+  "https://ucarecdn.com/9470832c-5568-4be5-8bc0-14b8c2bf8f5d/7.png",
+  "https://ucarecdn.com/6d0c6bb5-3296-49d4-b048-eabaae3d2910/1.png",
+  "https://ucarecdn.com/5f9786dd-bec4-4dca-9442-286f9c86bc9c/2.png",
+  "https://ucarecdn.com/0b789cce-e27a-466e-92a1-7f06f7a3c9b0/5.png"
+].filter((value, index, self) => self.indexOf(value) === index);
+
+export default function Alternative() {
   // Set the next session date for the countdown timer (January 13, 2025 at 7 AM EST)
   const nextSessionDate = new Date('2025-01-13T07:00:00-05:00')
+
+  const [currentAvatars, setCurrentAvatars] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Function to get 5 random avatars
+    const getRandomAvatars = () => {
+      const shuffled = [...avatarImages].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, 5);
+    };
+
+    // Initial set of avatars
+    setCurrentAvatars(getRandomAvatars());
+
+    // Rotate avatars every 4 seconds
+    const interval = setInterval(() => {
+      setCurrentAvatars(getRandomAvatars());
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     // Main container with full viewport height and overflow control
     <div className="relative flex flex-col overflow-x-hidden">
       {/* Header section with branding and social link */}
-      <div className="pt-20 pb-0 text-center">
+      <div className="pt-20 text-center">
         <h2 className="font-tanker text-[48px] text-secondary font-medium tracking-[-0.15rem]">96Mins</h2>
-        <span className="text-[20px] mt-1 inline-flex items-center gap-1">
-          Connect on 
-          <Link
-            href="https://www.linkedin.com/in/zca"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center hover:text-muted-foreground transition-colors"
-          >
-            <div className="text-secondary font-bold inline-flex items-center gap-1">
-              <LinkedinLogo size={24} weight="fill" />
-              LinkedIn
-            </div>
-          </Link>
-        </span>
       </div>
 
       {/* Main content section with centered layout */}
       <div className="flex-1 flex items-center justify-center">
         <div className="w-full max-w-3xl px-4 text-center">
           {/* Hero heading with decorative stars */}
-          <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.7rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-crimson Pro font-medium tracking-tighter relative px-2">
-            Ambitious people get unstuck together every Tuesday @7am
+          <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.7rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-primary font-serif tracking-tighter relative px-2">
+            Ambitious people get unstuck together every Tuesday @ 7am
           </h1>
 
           {/* Avatar grid */}
           <div className="flex flex-wrap justify-center gap-6 max-w-md mx-auto pt-12 pb-8">
-            <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#FFE4E1] overflow-hidden">
-              <img src="https://ucarecdn.com/4d806a12-a5cb-46c9-89a0-86cbf608ae78/10.png" alt="Avatar" className="w-full h-full object-cover" />
-            </div>
-            <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-secondary flex items-center justify-center text-white text-xl">
+            {currentAvatars.slice(0, 1).map((avatar, index) => (
+              <div key={`first-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#FFE4E1] overflow-hidden transition-opacity duration-300">
+                <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
+              </div>
+            ))}
+            <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-secondary flex items-center justify-center text-white text-lg sm:text-xl md:text-2xl">
               <span>You?</span>
             </div>
-            <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#E0F4F1] overflow-hidden">
-              <img src="https://ucarecdn.com/6cb09092-da3e-43f4-9225-5b904997bedc/-/preview/300x300/" alt="Avatar" className="w-full h-full object-cover" />
-            </div>
-            <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#E8F5E9] overflow-hidden">
-              <img src="https://ucarecdn.com/ca49b19a-9bac-4488-82e5-a4aa27b71aa9/-/preview/300x300/" alt="Avatar" className="w-full h-full object-cover" />
-            </div>
-            <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#FFF3E0] overflow-hidden">
-              <img src="https://ucarecdn.com/814fc47e-98e6-47d1-b428-aabb73649ebc/-/preview/300x300/" alt="Avatar" className="w-full h-full object-cover" />
-            </div>
-            <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#E0F7FA] overflow-hidden">
-              <img src="https://ucarecdn.com/9470832c-5568-4be5-8bc0-14b8c2bf8f5d/-/preview/300x300/" alt="Avatar" className="w-full h-full object-cover" />
-            </div>
+            {currentAvatars.slice(1, 2).map((avatar, index) => (
+              <div key={`second-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#E0F4F1] overflow-hidden transition-opacity duration-300">
+                <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
+              </div>
+            ))}
+            {currentAvatars.slice(2, 5).map((avatar, index) => (
+              <div key={`third-${avatar}`} className={`${index > 0 ? 'hidden sm:block' : ''} w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full ${
+                ['bg-[#E8F5E9]', 'bg-[#FFF3E0]', 'bg-[#E0F7FA]'][index]
+              } overflow-hidden transition-opacity duration-300`}>
+                <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
+              </div>
+            ))}
           </div>
 
           {/* Description text */}
           <div className="flex justify-center text-center">
-            <p className="text-[1.2rem] sm:text-[1.35rem] md:text-[1.4rem] leading-[-0.05rem] leading-[1.3] mt-2 mb-6 text-foreground font-sans w-full max-w-[100%] ">
-              Meet and share work or career challenges with 5 others who get it. Walk away with real solutions.
+            <p className="text-[1.35rem] sm:text-[1.425rem] md:text-[1.5rem] leading-[-0.05rem] leading-[1.3] mt-2 mb-6 text-foreground font-sans w-full max-w-[100%] ">
+              Share work or career challenges with 5 others who get it and leave with real solutions to grow.
             </p>
           </div>
 
           {/* Email signup form component */}
-          <div className="mb-1">
+          <div className="mb-1 max-w-[100%]">
             <EmailForm />
           </div>
 
-          {/* Location badge */}
-          <div className="flex justify-center mb-4">
-            <span className="text-[20px] inline-flex items-center px-3 py-1 rounded-full">
-              Currently in 
-              <span className="text-secondary font-bold px-1 inline-flex items-center gap-1">
-                <MapPinArea size={24} weight="fill" /> NYC
-              </span>
-            </span>
-          </div>
+          {/* Connect on LinkedIn */}
+          <span className="text-[18px] my-6 inline-flex items-center gap-1">
+          Connect on 
+          <Link
+            href="https://www.linkedin.com/in/zca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center transition-all duration-150 ease-in-out"
+          >
+            <div className="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1 transition-all duration-150 ease-in-out hover:scale-95">
+              <LinkedinLogo size={20} weight="fill" />
+              LinkedIn
+            </div>
+          </Link>
+        </span>
 
           {/* Countdown timer component */}
-          <div className="mb-6">
+          <div>
             <CountdownClock targetDate={nextSessionDate} />
           </div>
         </div>

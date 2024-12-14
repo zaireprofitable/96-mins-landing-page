@@ -65,7 +65,7 @@ export function EmailForm() {
 
   return (
     <div className="flex justify-center">
-      <div className="max-w-md mx-auto w-full px-4">
+      <div className="max-w-md mx-auto w-full px-0">
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-1 w-full">
           <Input
             type="email"
