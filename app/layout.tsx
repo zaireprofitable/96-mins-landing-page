@@ -10,8 +10,8 @@ const crimsonPro = Crimson_Pro({
 })
 
 export const metadata: Metadata = {
-  title: '96mins | Get unstuck together every Monday at 7am',
-  description: 'Join ambitious professionals every Monday at 7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
+  title: '96mins | Get unstuck together every Tuesday @7am',
+  description: 'Join ambitious professionals every Tuesday @7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
   icons: [
     {
       rel: 'icon',
@@ -20,16 +20,16 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    title: '96mins | Get unstuck together every Monday at 7am',
-    description: 'Join ambitious professionals every Monday at 7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
+    title: '96mins | Get unstuck together every Tuesday @7am',
+    description: 'Join ambitious professionals every Tuesday @7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
     url: 'https://96mins.com',
     siteName: '96mins',
     images: [
       {
-        url: '/og.svg',
-        width: 1200,
-        height: 630,
-        alt: '96mins',
+        url: 'https://ucarecdn.com/a07a774f-1315-4ee0-b5bd-49dcf29d784d/-/preview/1000x525/',
+        width: 1000,
+        height: 525,
+        alt: '96mins - Get unstuck together every Tuesday @7am',
       },
     ],
     locale: 'en_US',
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '96mins | Get unstuck together every Monday at 7am',
-    description: 'Join ambitious professionals every Monday at 7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
+    title: '96mins | Get unstuck together every Tuesday @7am',
+    description: 'Join ambitious professionals every Tuesday @7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
     images: ['/og.svg'],
   },
 }

@@ -34,7 +34,7 @@ export function EmailForm() {
         if (error.message?.includes('duplicate key value violates unique constraint')) {
           toast({
             title: "Welcome Back! ✨",
-            description: "Great to see your enthusiasm! You're already part of our Monday morning crew.",
+            description: "Great to see your enthusiasm! You're already part of our Tuesday morning crew.",
             className: "bg-white text-black border-none text-center",
           })
           setEmail('')

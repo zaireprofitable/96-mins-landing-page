@@ -36,7 +36,7 @@
           <div className="w-full max-w-3xl px-4 text-center">
             {/* Hero heading with decorative stars */}
             <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.7rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-crimson Pro font-medium tracking-tighter relative px-2">
-              Ambitious people get unstuck together every Monday @7am
+              Ambitious people get unstuck together every Tuesday @7am
             </h1>
 
             {/* Avatar grid */}
