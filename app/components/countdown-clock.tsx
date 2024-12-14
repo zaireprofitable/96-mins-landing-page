@@ -31,20 +31,24 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
   const padWithZero = (num: number) => String(num).padStart(2, '0')
 
   return (
-    <div className="bg-[#E32636]/50 backdrop-blur-sm text-white p-4 rounded-lg shadow-md inline-block">
-      <div className="text-center mb-2 font-sans text-sm">
-        Next date: January 13, 2025
+    <div className="bg-[#F1EFEC] text-primary p-4 rounded-lg inline-block">
+      <div className="text-center mb-2 font-serif text-[18px]">
+        Next 'Problem Solve' in
       </div>
       <div className="grid grid-cols-3 gap-2 text-center">
         {Object.entries(timeLeft).map(([unit, value]) => (
           <div key={unit} className="flex flex-col items-center">
-            <div className="text-2xl font-bold font-mono bg-[#E32636]/20 p-2 rounded-md w-14">
+            <div className="text-[28px] leading-[1.1] tracking-sm font-sans rounded-md w-14">
               {padWithZero(value)}
             </div>
-            <div className="text-xs mt-1 uppercase">{unit}</div>
+            <div className="text-[18px] text-muted-foreground capitalize">{unit}</div>
           </div>
         ))}
       </div>
     </div>
   )
 }
+
+
+<p className="text-[1.2rem] sm:text-[1.35rem] md:text-[1.4rem] leading-[-0.05rem] leading-[1.2] mt-6 mb-6 text-foreground font-sans w-full max-w-[100%] ">
+</p>

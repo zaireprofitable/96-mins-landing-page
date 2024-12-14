@@ -3,29 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 15%;
-  --foreground: 0 0% 100%;
-  --card: 0 72% 51%;
-  --card-foreground: 0 0% 100%;
-  --popover: 0 72% 51%;
-  --popover-foreground: 0 0% 100%;
-  --primary: 0 72% 51%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 0 62% 41%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 0 62% 41%;
-  --muted-foreground: 0 0% 70%;
-  --accent: 0 62% 41%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 0 62% 41%;
-  --input: 0 62% 41%;
-  --ring: 0 72% 51%;
+  --background: #FBF9F6;
+  --foreground: #111111;
+  --card: #006EFF;
+  --card-foreground: #111111;
+  --popover: #006EFF;
+  --popover-foreground: #111111;
+  --primary: #000000;
+  --primary-foreground: #FFFFFF;
+  --secondary: #006EFF;
+  --secondary-foreground: #111111;
+  --muted: #006EFF;
+  --muted-foreground: #4b4b4b;
+  --accent: #006EFF;
+  --accent-foreground: #111111;
+  --destructive: #EF4444;
+  --destructive-foreground: #111111;
+  --border: #111111;
+  --input: #111111;
+  --ring: #111111;
   --radius: 0.5rem;
 }
 
-/* Switzer font declarations */
+/* Switzer font declarations *
 @font-face {
   font-family: 'Switzer-Variable';
   src: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Switzer-Variable-9khcIJESd0WUjKvZasKv08ai84fzfV.woff2') format('woff2');
@@ -34,10 +34,36 @@
   font-style: normal;
 }
 
-/* Iosevka font declarations */
+/* Inter font declarations */
 @font-face {
-  font-family: 'Iosevka';
-  src: url('/fonts/Iosevka-Regular.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url(https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap);
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Crimson Pro Variable font declarations */
+@font-face {
+  font-family: 'Crimson Pro';
+  src: url('/fonts/CrimsonPro-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Pro';
+  src: url('/fonts/CrimsonPro-VariableItalic.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Tanker font declarations */
+@font-face {
+  font-family: 'Tanker';
+  src: url('/fonts/Tanker-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -61,68 +87,18 @@
 
   /* Keep Iosevka for countdown numbers */
   .font-mono {
-    font-family: 'Iosevka', monospace;
+    font-family: 'Crimson Pro';
   }
 
-  /* Keep Switzer for headings, buttons, and inputs */
+ /* Keep Inter for headings, buttons, and inputs */
   h1, h2, h3, h4, h5, h6,
   button,
-  input,
-  .cta {
-    font-family: 'Switzer-Variable', sans-serif;
+  input {
+    font-family: 'Inter', sans-serif;
   }
 }
 
-/*.dark {
-  --background: 0 0% 15%;
-  --foreground: 210 40% 98%;
-  --card: 0 0% 15%;
-  --card-foreground: 210 40% 98%;
-  --popover: 0 0% 15%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-}*/
-
-/*.bg-texture {
-  background-color: #C93B3B;
-  isolation: isolate;
+h1 {
+  font-family: 'Crimson Pro', serif;
+  line-height: 1.2;
 }
-
-.bg-texture::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.45;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 2000 2000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  mix-blend-mode: soft-light;
-  pointer-events: none;
-  z-index: 1;
-  transform: translateZ(0);
-  will-change: transform;
-}
-
-.bg-texture::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 2000 2000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  z-index: 2;
-  transform: translateZ(0);
-  will-change: transform;
-}
-*/

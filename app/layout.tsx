@@ -2,6 +2,12 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Toaster } from '@/components/ui/toaster'
+import { Crimson_Pro } from 'next/font/google'
+
+const crimsonPro = Crimson_Pro({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+})
 
 export const metadata: Metadata = {
   title: '96mins | Get unstuck together every Monday at 7am',
@@ -52,7 +58,9 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body className="min-h-screen max-w-[100vw] overflow-x-hidden bg-background font-sans antialiased">
+      <body className={`${crimsonPro.className} min-h-screen max-w-[560px] mx-auto px-4 overflow-x-hidden bg-background text-foreground font-sans antialiased`}>
+
+
         {children}
         <Toaster />
       </body>
