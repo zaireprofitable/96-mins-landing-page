@@ -1,7 +1,7 @@
 'use client'
 
-import { EmailForm } from '@/components/email-form'
-import { CountdownClock } from '@/components/countdown-clock'
+import { EmailForm } from '../../components/email-form'
+import { CountdownClock } from '../../components/countdown-clock'
 import Link from 'next/link'
 import { LinkedinLogo, MapPinArea } from "@phosphor-icons/react"
 
