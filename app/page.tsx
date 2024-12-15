@@ -22,7 +22,7 @@ const avatarImages = [
 
 export default function Alternative() {
   // Set the next session date for the countdown timer (January 13, 2025 at 7 AM EST)
-  const nextSessionDate = new Date('2025-01-13T07:00:00-05:00')
+  const nextSessionDate = new Date('2025-01-13T07:00:00-05:00');
 
   const [currentAvatars, setCurrentAvatars] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -70,7 +70,7 @@ export default function Alternative() {
   return (
     <div className='max-w-[560px] mx-auto px-4'>
       {/* Header section with branding and social link */}
-      <div className="pt-8 md:pt-20 text-center">
+      <div className="pt-8 md:pt-19 text-center">
         <h2 className="font-tanker text-[48px] text-secondary font-medium tracking-[-0.15rem]">96Mins</h2>
       </div>
 

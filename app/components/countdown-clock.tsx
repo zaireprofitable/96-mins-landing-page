@@ -13,15 +13,7 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date();
-      const nextTuesday = new Date(now);
-      nextTuesday.setDate(now.getDate() + ((2 + 7 - now.getDay()) % 7));
-      nextTuesday.setHours(7, 0, 0, 0);
-
-      if (now > nextTuesday) {
-        nextTuesday.setDate(nextTuesday.getDate() + 7);
-      }
-
-      const difference = nextTuesday.getTime() - now.getTime();
+      const difference = targetDate.getTime() - now.getTime();
 
       setTimeLeft({
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -34,7 +26,7 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
     const timer = setInterval(calculateTimeLeft, 60000);
 
     return () => clearInterval(timer);
-  }, [])
+  }, [targetDate])
 
   const padWithZero = (num: number) => String(num).padStart(2, '0')
 
