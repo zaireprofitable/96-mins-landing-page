@@ -39,7 +39,7 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
   const padWithZero = (num: number) => String(num).padStart(2, '0')
 
   return (
-    <div className="bg-[#F1EFEC] text-primary p-4 rounded-lg inline-flex flex-col tracking-[-0.48px]">
+    <div className="bg-[#F1EFEC] text-primary p-4 rounded-lg md:max-w-[380px] tracking-[-0.48px]  text-center">
       
       {/* Location badge */}
       <div className="flex justify-center mb-4">
@@ -48,7 +48,7 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
             </span>
           </div>
 
-      <div className="grid grid-cols-3 gap-2 text-center">
+      <div className="grid grid-cols-3 gap-2">
         {Object.entries(timeLeft).map(([unit, value]) => (
           <div key={unit} className="flex flex-col items-center">
             <div className="text-[1.5rem] leading-[1.1] tracking-[-0.02em] font-sans rounded-md w-14">
@@ -61,7 +61,3 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
     </div>
   )
 }
-
-
-<p className="text-[1.2rem] sm:text-[1.35rem] md:text-[1.4rem] leading-[-0.05rem] leading-[1.2] mt-6 mb-6 text-foreground font-sans w-full max-w-[100%] ">
-</p>

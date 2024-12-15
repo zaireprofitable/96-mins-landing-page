@@ -68,7 +68,7 @@ export default function Alternative() {
   }, []);
 
   return (
-    <div className='max-w-[560px] justify-center mx-auto'>
+    <div className='max-w-[560px] mx-auto px-4'>
       {/* Header section with branding and social link */}
       <div className="pt-8 md:pt-20 text-center">
         <h2 className="font-tanker text-[48px] text-secondary font-medium tracking-[-0.15rem]">96Mins</h2>
@@ -138,35 +138,33 @@ export default function Alternative() {
         </div>
 
         {/* Description text */}
-        <div className="flex justify-center text-center">
-          <p className="text-[1.35rem] sm:text-[1.425rem] md:text-[1.5rem] leading-[-0.05rem] leading-[1.3] mt-2 mb-6 text-foreground font-sans w-full max-w-[100%] ">
-            Share work or career challenges with 5 others who get it and leave with real solutions to grow.
-          </p>
-        </div>
+        <p className="text-[1.35rem] sm:text-[1.425rem] md:text-[1.5rem] leading-[1.3] mt-2 mb-6 text-foreground font-sans">
+          Share work or career challenges with 5 others who get it and leave with real solutions to grow.
+        </p>
 
         {/* Email signup form component */}
-        <div className="mb-1 max-w-[100%]">
+        <div className="mb-1">
           <EmailForm />
         </div>
 
         {/* Connect on LinkedIn */}
         <span className="text-[18px] my-6 inline-flex items-center gap-1">
-        Connect on 
-        <Link
-          href="https://www.linkedin.com/in/zca"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center transition-all duration-150 ease-in-out"
-        >
-          <div className="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1 transition-all duration-150 ease-in-out hover:scale-95">
-            <LinkedinLogo size={20} weight="fill" />
-            LinkedIn
-          </div>
-        </Link>
-      </span>
+          Connect on 
+          <Link
+            href="https://www.linkedin.com/in/zca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center transition-all duration-150 ease-in-out"
+          >
+            <div className="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1 transition-all duration-150 ease-in-out hover:scale-95">
+              <LinkedinLogo size={20} weight="fill" />
+              LinkedIn
+            </div>
+          </Link>
+        </span>
 
         {/* Countdown section */}
-        <div className=" mb-8">
+        <div className="my-8">
           <CountdownClock targetDate={nextSessionDate} />
         </div>
       </div>

@@ -69,7 +69,7 @@ export default function RootLayout({
       <body className={cn(
         crimsonPro.variable,
         inter.variable,
-        "bg-background font-sans antialiased tracking-[-.40px] mx-auto px-4 overflow-x-hidden text-foreground",
+        "bg-background font-sans antialiased tracking-[-.40px] width-full mx-auto overflow-x-hidden text-foreground",
       )}>
         {children}
         <Toaster />
