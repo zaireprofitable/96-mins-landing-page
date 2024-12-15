@@ -68,9 +68,9 @@ export default function Alternative() {
   }, []);
 
   return (
-    <div>
+    <div className='max-w-[560px] justify-center mx-auto'>
       {/* Header section with branding and social link */}
-      <div className="pt-8m md:pt-20 text-center">
+      <div className="pt-8 md:pt-20 text-center">
         <h2 className="font-tanker text-[48px] text-secondary font-medium tracking-[-0.15rem]">96Mins</h2>
       </div>
 
@@ -166,7 +166,7 @@ export default function Alternative() {
       </span>
 
         {/* Countdown section */}
-        <div className="mt-12 mb-8">
+        <div className=" mb-8">
           <CountdownClock targetDate={nextSessionDate} />
         </div>
       </div>

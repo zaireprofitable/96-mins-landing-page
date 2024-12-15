@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'icon',
-      type: 'image/svg+xml',
-      url: '/favicon.svg',
+      type: 'image/png',
+      url: 'https://ucarecdn.com/23f53456-c268-41c1-97be-342b99261c78/-/preview/1000x1000/',
     },
   ],
   openGraph: {
@@ -69,7 +69,7 @@ export default function RootLayout({
       <body className={cn(
         crimsonPro.variable,
         inter.variable,
-        "bg-background font-sans antialiased tracking-[-.40px] max-w-[560px] mx-auto px-4 overflow-x-hidden text-foreground",
+        "bg-background font-sans antialiased tracking-[-.40px] mx-auto px-4 overflow-x-hidden text-foreground",
       )}>
         {children}
         <Toaster />
