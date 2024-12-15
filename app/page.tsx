@@ -3,6 +3,7 @@
 import { EmailForm } from './components/email-form'
 import { CountdownClock } from './components/countdown-clock'
 import { RotatingAvatars } from "./components/rotating-avatars"
+import { LoadingAnimation } from './components/loading-animation'
 import Link from 'next/link'
 import { LinkedinLogo, MapPinArea } from "@phosphor-icons/react"
 import { useState, useEffect } from 'react'
@@ -24,8 +25,31 @@ export default function Alternative() {
   const nextSessionDate = new Date('2025-01-13T07:00:00-05:00')
 
   const [currentAvatars, setCurrentAvatars] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Preload images
+    const preloadImages = async () => {
+      const loadImage = (src: string) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve(img);
+          img.onerror = reject;
+        });
+      };
+
+      try {
+        await Promise.all(avatarImages.map(src => loadImage(src)));
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error preloading images:', error);
+        setIsLoading(false);
+      }
+    };
+
+    preloadImages();
+
     // Function to get 5 random avatars
     const getRandomAvatars = () => {
       const shuffled = [...avatarImages].sort(() => 0.5 - Math.random());
@@ -44,15 +68,14 @@ export default function Alternative() {
   }, []);
 
   return (
-    // Main container with full viewport height and overflow control
-    <div className="relative flex flex-col overflow-x-hidden">
+    <div>
       {/* Header section with branding and social link */}
       <div className="pt-20 text-center">
         <h2 className="font-tanker text-[48px] text-secondary font-medium tracking-[-0.15rem]">96Mins</h2>
       </div>
 
       {/* Main content section with centered layout */}
-      <div className="flex-1 flex items-center justify-center">
+      <div className="items-center justify-center">
         <div className="w-full max-w-3xl px-4 text-center">
           {/* Hero heading with decorative stars */}
           <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.7rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-primary font-serif tracking-tighter relative px-2">
@@ -61,26 +84,58 @@ export default function Alternative() {
 
           {/* Avatar grid */}
           <div className="flex flex-wrap justify-center gap-6 max-w-md mx-auto pt-12 pb-8">
-            {currentAvatars.slice(0, 1).map((avatar, index) => (
-              <div key={`first-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#FFE4E1] overflow-hidden transition-opacity duration-300">
-                <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
+            {isLoading ? (
+              <div className="col-span-full flex items-center justify-center py-8">
+                <LoadingAnimation />
               </div>
-            ))}
-            <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-secondary flex items-center justify-center text-white text-lg sm:text-xl md:text-2xl">
-              <span>You?</span>
-            </div>
-            {currentAvatars.slice(1, 2).map((avatar, index) => (
-              <div key={`second-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#E0F4F1] overflow-hidden transition-opacity duration-300">
-                <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
-              </div>
-            ))}
-            {currentAvatars.slice(2, 5).map((avatar, index) => (
-              <div key={`third-${avatar}`} className={`${index > 0 ? 'hidden sm:block' : ''} w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full ${
-                ['bg-[#E8F5E9]', 'bg-[#FFF3E0]', 'bg-[#E0F7FA]'][index]
-              } overflow-hidden transition-opacity duration-300`}>
-                <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
-              </div>
-            ))}
+            ) : (
+              <>
+                {currentAvatars.slice(0, 1).map((avatar, index) => (
+                  <div key={`first-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#FFE4E1] overflow-hidden">
+                    <img 
+                      src={avatar} 
+                      alt="Avatar" 
+                      className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
+                      onLoad={(e) => {
+                        const img = e.target as HTMLImageElement;
+                        img.style.opacity = '1';
+                      }}
+                    />
+                  </div>
+                ))}
+                <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-secondary flex items-center justify-center text-white text-lg sm:text-xl md:text-2xl">
+                  <span>You?</span>
+                </div>
+                {currentAvatars.slice(1, 2).map((avatar, index) => (
+                  <div key={`second-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#E0F4F1] overflow-hidden">
+                    <img 
+                      src={avatar} 
+                      alt="Avatar" 
+                      className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
+                      onLoad={(e) => {
+                        const img = e.target as HTMLImageElement;
+                        img.style.opacity = '1';
+                      }}
+                    />
+                  </div>
+                ))}
+                {currentAvatars.slice(2, 5).map((avatar, index) => (
+                  <div key={`third-${avatar}`} className={`${index > 0 ? 'hidden sm:block' : ''} w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full ${
+                    ['bg-[#E8F5E9]', 'bg-[#FFF3E0]', 'bg-[#E0F7FA]'][index]
+                  } overflow-hidden`}>
+                    <img 
+                      src={avatar} 
+                      alt="Avatar" 
+                      className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
+                      onLoad={(e) => {
+                        const img = e.target as HTMLImageElement;
+                        img.style.opacity = '1';
+                      }}
+                    />
+                  </div>
+                ))}
+              </>
+            )}
           </div>
 
           {/* Description text */}
