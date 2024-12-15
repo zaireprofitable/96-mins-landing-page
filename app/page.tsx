@@ -164,7 +164,7 @@ export default function Alternative() {
         </span>
 
         {/* Countdown section */}
-        <div className="my-8">
+        <div className="my-8 flex justify-center md:w-full">
           <CountdownClock targetDate={nextSessionDate} />
         </div>
       </div>
