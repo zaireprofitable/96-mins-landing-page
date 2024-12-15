@@ -70,7 +70,7 @@ export default function Alternative() {
   return (
     <div>
       {/* Header section with branding and social link */}
-      <div className="pt-20 text-center">
+      <div className="pt-8m md:pt-20 text-center">
         <h2 className="font-tanker text-[48px] text-secondary font-medium tracking-[-0.15rem]">96Mins</h2>
       </div>
 
@@ -78,7 +78,7 @@ export default function Alternative() {
       <div className="items-center justify-center">
         <div className="w-full max-w-3xl px-4 text-center">
           {/* Hero heading with decorative stars */}
-          <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.7rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-primary font-serif tracking-tighter relative px-2">
+          <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-primary font-serif tracking-tighter relative px-2">
             Ambitious people get unstuck together every Tuesday @ 7am
           </h1>
 
