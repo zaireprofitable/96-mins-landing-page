@@ -39,7 +39,7 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
   const padWithZero = (num: number) => String(num).padStart(2, '0')
 
   return (
-    <div className="bg-[#F1EFEC] text-primary p-4 rounded-lg inline-block tracking-[-0.48px]">
+    <div className="bg-[#F1EFEC] text-primary p-4 rounded-lg inline-block tracking-[-0.48px] w-full">
       
       {/* Location badge */}
       <div className="flex justify-center mb-4">
