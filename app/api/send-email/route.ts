@@ -7,6 +7,25 @@ export async function POST(request: Request) {
   try {
     const { email } = await request.json();
 
+    // Add contact to Resend audience
+    try {
+      await fetch('https://api.resend.com/audiences/ed2a49b0-0f51-408e-81af-1df107ddaf59/contacts', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          first_name: email.split('@')[0], // Using part before @ as first name
+          subscribed: true,
+        })
+      });
+    } catch (error) {
+      console.error('Error adding contact to Resend:', error);
+      // Continue execution even if adding to audience fails
+    }
+
     const { data, error } = await resend.emails.send({
       from: '96Mins <onboarding@resend.dev>',
       to: email,

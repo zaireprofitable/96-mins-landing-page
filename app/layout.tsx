@@ -18,8 +18,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: '96mins | Get unstuck together every Tuesday @ 7am',
-  description: 'Join ambitious professionals every Tuesday @ 7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
+  title: '96mins | Designers become freelancers together every Tuesday',
+  description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
   icons: [
     {
       rel: 'icon',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    title: '96mins | Get unstuck together every Tuesday @ 7am',
-    description: 'Join ambitious professionals every Tuesday @ 7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
+    title: '96mins | Designers become freelancers together every Tuesday',
+    description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
     url: 'https://96mins.com',
     siteName: '96mins',
     images: [
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '96mins | Get unstuck together every Tuesday @ 7am',
-    description: 'Join ambitious professionals every Tuesday @ 7am to tackle work and career challenges. Share your problems, get real solutions, and make progress in just 96 minutes.',
+    title: '96mins | Designers become freelancers together every Tuesday',
+    description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
     images: ['/og.svg'],
   },
 }
