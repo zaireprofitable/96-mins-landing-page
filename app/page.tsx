@@ -68,105 +68,109 @@ export default function Alternative() {
   }, []);
 
   return (
-    <div className='max-w-[560px] mx-auto px-4'>
-      {/* Header section with branding and social link */}
-      <div className="pt-8 md:pt-19 text-center">
-        <h2 className="font-tanker text-[32px] tracking-[-0.10rem] md:text-[48px] md:tracking-[-0.15rem] text-secondary font-medium ">96Mins</h2>
+    <div className='min-h-screen flex flex-col'>
+      <div className='flex-1 flex items-center'>
+        <div className='max-w-[560px] mx-auto px-4'>
+          {/* Header section with branding and social link */}
+          <div className="pt-8 md:pt-19 text-center">
+            <h2 className="font-tanker text-[32px] tracking-[-0.10rem] md:text-[48px] md:tracking-[-0.15rem] text-secondary font-medium ">96Mins</h2>
+          </div>
+
+          {/* Main content section with centered layout */}
+          <div className="text-center">
+            {/* Hero heading with decorative stars */}
+            <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-primary font-serif tracking-tighter relative px-2">
+            Designers become freelancers together every Tuesday for 96 mins
+            </h1>
+
+            {/* Avatar grid */}
+            <div className="flex flex-wrap justify-center gap-6 max-w-md mx-auto pt-12 pb-8">
+              {isLoading ? (
+                <div className="col-span-full flex items-center justify-center py-8">
+                  <LoadingAnimation />
+                </div>
+              ) : (
+                <>
+                  {currentAvatars.slice(0, 1).map((avatar, index) => (
+                    <div key={`first-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#FFE4E1] overflow-hidden">
+                      <img 
+                        src={avatar} 
+                        alt="Avatar" 
+                        className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
+                        onLoad={(e) => {
+                          const img = e.target as HTMLImageElement;
+                          img.style.opacity = '1';
+                        }}
+                      />
+                    </div>
+                  ))}
+                  <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-secondary flex items-center justify-center text-white text-lg sm:text-xl md:text-2xl">
+                    <span>You?</span>
+                  </div>
+                  {currentAvatars.slice(1, 2).map((avatar, index) => (
+                    <div key={`second-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#E0F4F1] overflow-hidden">
+                      <img 
+                        src={avatar} 
+                        alt="Avatar" 
+                        className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
+                        onLoad={(e) => {
+                          const img = e.target as HTMLImageElement;
+                          img.style.opacity = '1';
+                        }}
+                      />
+                    </div>
+                  ))}
+                  {currentAvatars.slice(2, 5).map((avatar, index) => (
+                    <div key={`third-${avatar}`} className={`${index > 0 ? 'hidden sm:block' : ''} w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full ${
+                      ['bg-[#E8F5E9]', 'bg-[#FFF3E0]', 'bg-[#E0F7FA]'][index]
+                    } overflow-hidden`}>
+                      <img 
+                        src={avatar} 
+                        alt="Avatar" 
+                        className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
+                        onLoad={(e) => {
+                          const img = e.target as HTMLImageElement;
+                          img.style.opacity = '1';
+                        }}
+                      />
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
+
+            {/* Description text */}
+            <p className="text-[1.25rem] sm:text-[1.25rem] md:text-[1.3rem] leading-[1.3] mt-2 mb-6 text-foreground font-sans">
+            Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.
+            </p>
+
+            {/* Email signup form component */}
+            <div className="mb-1">
+              <EmailForm />
+            </div>
+
+            {/* Connect on LinkedIn */}
+            <span className="text-[18px] my-6 inline-flex items-center gap-1">
+              Connect on 
+              <Link
+                href="https://www.linkedin.com/in/zca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center transition-all duration-150 ease-in-out"
+              >
+                <div className="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1 transition-all duration-150 ease-in-out hover:scale-95">
+                  <LinkedinLogo size={20} weight="fill" />
+                  LinkedIn
+                </div>
+              </Link>
+            </span>
+
+           
+          </div>
+        </div>
       </div>
-
-      {/* Main content section with centered layout */}
-      <div className="text-center">
-        {/* Hero heading with decorative stars */}
-        <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-primary font-serif tracking-tighter relative px-2">
-          Ambitious people get unstuck together every Tuesday @ 7am
-        </h1>
-
-        {/* Avatar grid */}
-        <div className="flex flex-wrap justify-center gap-6 max-w-md mx-auto pt-12 pb-8">
-          {isLoading ? (
-            <div className="col-span-full flex items-center justify-center py-8">
-              <LoadingAnimation />
-            </div>
-          ) : (
-            <>
-              {currentAvatars.slice(0, 1).map((avatar, index) => (
-                <div key={`first-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#FFE4E1] overflow-hidden">
-                  <img 
-                    src={avatar} 
-                    alt="Avatar" 
-                    className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
-                    onLoad={(e) => {
-                      const img = e.target as HTMLImageElement;
-                      img.style.opacity = '1';
-                    }}
-                  />
-                </div>
-              ))}
-              <div className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-secondary flex items-center justify-center text-white text-lg sm:text-xl md:text-2xl">
-                <span>You?</span>
-              </div>
-              {currentAvatars.slice(1, 2).map((avatar, index) => (
-                <div key={`second-${avatar}`} className="w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full bg-[#E0F4F1] overflow-hidden">
-                  <img 
-                    src={avatar} 
-                    alt="Avatar" 
-                    className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
-                    onLoad={(e) => {
-                      const img = e.target as HTMLImageElement;
-                      img.style.opacity = '1';
-                    }}
-                  />
-                </div>
-              ))}
-              {currentAvatars.slice(2, 5).map((avatar, index) => (
-                <div key={`third-${avatar}`} className={`${index > 0 ? 'hidden sm:block' : ''} w-[calc(50%-1rem)] sm:w-[calc(33.33%-1.5rem)] max-w-[120px] aspect-square rounded-full ${
-                  ['bg-[#E8F5E9]', 'bg-[#FFF3E0]', 'bg-[#E0F7FA]'][index]
-                } overflow-hidden`}>
-                  <img 
-                    src={avatar} 
-                    alt="Avatar" 
-                    className="w-full h-full object-cover transition-opacity duration-500 ease-in opacity-0 hover:opacity-100" 
-                    onLoad={(e) => {
-                      const img = e.target as HTMLImageElement;
-                      img.style.opacity = '1';
-                    }}
-                  />
-                </div>
-              ))}
-            </>
-          )}
-        </div>
-
-        {/* Description text */}
-        <p className="text-[1.35rem] sm:text-[1.425rem] md:text-[1.5rem] leading-[1.3] mt-2 mb-6 text-foreground font-sans">
-          Share work or career challenges with 5 others who get it and leave with real solutions to grow.
-        </p>
-
-        {/* Email signup form component */}
-        <div className="mb-1">
-          <EmailForm />
-        </div>
-
-        {/* Connect on LinkedIn */}
-        <span className="text-[18px] my-6 inline-flex items-center gap-1">
-          Connect on 
-          <Link
-            href="https://www.linkedin.com/in/zca"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center transition-all duration-150 ease-in-out"
-          >
-            <div className="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1 transition-all duration-150 ease-in-out hover:scale-95">
-              <LinkedinLogo size={20} weight="fill" />
-              LinkedIn
-            </div>
-          </Link>
-        </span>
-
-        {/* Countdown section */}
-        <div className="my-8 flex justify-center md:w-full">
-          <CountdownClock targetDate={nextSessionDate} />
-        </div>
+      <div className="text-center text-sm text-gray-500 py-4">
+        By the team behind <a href="https://handheld.design/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">Handheld Design</a>, <a href="https://sitesexplained.com" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">Sites Explained</a> and <a href="https://lovecircular.com" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">Love Circular</a>
       </div>
     </div>
   )
