@@ -153,7 +153,7 @@ export default function Alternative() {
             <span className="text-[18px] my-6 inline-flex items-center gap-1">
               Connect on 
               <Link
-                href="https://www.linkedin.com/in/zca"
+                href="https://www.linkedin.com/company/96mins"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center transition-all duration-150 ease-in-out"
