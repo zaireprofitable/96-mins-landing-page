@@ -15,10 +15,10 @@ export async function POST(request: Request) {
     const { data, error } = await resend.emails.send({
       from: 'Zaire from 96mins <zaire@96mins.com>',
       to: [email],
-      subject: 'Welcome to 96mins! 🎨',
+      subject: 'Join us at 96mins! 🎨',
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #3B82F6;">Welcome to 96mins!</h1>
+          <h1 style="color: #3B82F6;">Join us at 96mins!</h1>
           <p>Thanks for joining our community of designers becoming freelancers together! 🎨</p>
           <p>To get started, please fill out our quick onboarding form:</p>
           <a href="https://tally.so/r/mDABV5" style="display: inline-block; background-color: #3B82F6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0;">Complete Onboarding Form</a>
