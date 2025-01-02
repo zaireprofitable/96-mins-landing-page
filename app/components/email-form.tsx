@@ -64,7 +64,7 @@ export function EmailForm() {
 
       toast({
         title: "🎉 Success!",
-        description: "You're on the list! See you soon.",
+        description: "You're on the list! Please check your email (including spam folder) for a welcome message.",
         className: "bg-white text-black border-none text-center",
       })
       setEmail('')
