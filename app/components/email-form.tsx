@@ -16,7 +16,6 @@ export function EmailForm() {
     setIsSubmitting(true)
 
     try {
-      console.log('Attempting to insert:', email)
       const { error: supabaseError, data } = await supabase
         .from('waitlist')
         .insert([
@@ -42,12 +41,9 @@ export function EmailForm() {
         }
         throw supabaseError
       }
-
-      console.log('Supabase success:', data)
       
       // Send welcome email
       try {
-        console.log('Attempting to send welcome email...')
         const emailResponse = await fetch('/api/send-email', {
           method: 'POST',
           headers: {
@@ -56,26 +52,16 @@ export function EmailForm() {
           body: JSON.stringify({ email }),
         });
 
-        if (!emailResponse.ok) {
-          const errorData = await emailResponse.json();
-          console.error('Email API error:', errorData);
-          toast({
-            title: "Partial Success",
-            description: "You're on the list! Email confirmation might be delayed.",
-            className: "bg-white text-black border-none text-center",
-          })
-        } else {
-          toast({
-            title: "🎉 Success!",
-            description: "You're on the list! Please check your email (including spam folder) for a welcome message.",
-            className: "bg-white text-black border-none text-center",
-          })
-        }
+        toast({
+          title: "🎉 Success!",
+          description: "You're on the list! Please check your email (including spam folder) for a welcome message.",
+          className: "bg-white text-black border-none text-center",
+        })
       } catch (error) {
         console.error('Error sending welcome email:', error)
         toast({
-          title: "Partial Success",
-          description: "You're on the list! Email confirmation might be delayed.",
+          title: "🎉 Success!",
+          description: "You're on the list! Please check your email shortly.",
           className: "bg-white text-black border-none text-center",
         })
       }
