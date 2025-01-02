@@ -60,9 +60,17 @@ export function EmailForm() {
 
         toast({
           title: "🎉 Success!",
-          description: "You're on the list! Please check your email (including spam folder) for a welcome message.",
+          description: "You're on the list! Redirecting you to the onboarding form...",
           className: "bg-white text-black border-none text-center",
         });
+        
+        // Reset form
+        setEmail('');
+        
+        // Redirect to Tally form after a short delay
+        setTimeout(() => {
+          window.location.href = 'https://tally.so/r/mDABV5';
+        }, 2000);
       } catch (error) {
         console.error('Error sending welcome email:', error);
         toast({
