@@ -18,26 +18,26 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: '96Mins | Designers become freelancers together every Tuesday',
-  description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
+  title: '96mins | Designers become freelancers together every Tuesday',
+  description: 'Weekly online and IRL sessions to land clients and launch your freelance career.',
   icons: [
     {
       rel: 'icon',
       type: 'image/png',
-      url: 'https://ucarecdn.com/23f53456-c268-41c1-97be-342b99261c78/-/preview/1000x1000/',
+      url: '/favicon.ico',
     },
   ],
   openGraph: {
-    title: 'Designers become freelancers together every Tuesday for 96Mins',
-    description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
-    url: 'https://96Mins.com',
-    siteName: '96Mins',
+    title: 'Designers become freelancers together every Tuesday for 96mins',
+    description: 'Weekly online and IRL sessions to land clients and launch your freelance career.',
+    url: 'https://96mins.com',
+    siteName: '96mins',
     images: [
       {
-        url: 'https://ucarecdn.com/97bd1550-d7f1-45a9-9c24-97c8f4be5c35/96SocialImage.png',
+        url: 'https://ucarecdn.com/5da79f72-ffde-45e6-97e7-54c81243c493/96SocialImage.png',
         width: 1200,
         height: 630,
-        alt: '96Mins - Designers become freelancers together'
+        alt: '96mins - Designers become freelancers together'
       }
     ],
     locale: 'en_US',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Designers become freelancers together every Tuesday for 96Mins',
-    description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
-    images: ['https://ucarecdn.com/97bd1550-d7f1-45a9-9c24-97c8f4be5c35/96SocialImage.png'],
+    title: 'Designers become freelancers together every Tuesday for 96mins',
+    description: 'Weekly online and IRL sessions to land clients and launch your freelance career.',
+    images: ['https://ucarecdn.com/5da79f72-ffde-45e6-97e7-54c81243c493/96SocialImage.png'],
   },
 }
 
