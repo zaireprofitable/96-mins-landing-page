@@ -47,6 +47,7 @@ export function EmailForm() {
       
       // Send welcome email
       try {
+        console.log('Attempting to send welcome email...');
         const emailResponse = await fetch('/api/send-email', {
           method: 'POST',
           headers: {
@@ -55,11 +56,21 @@ export function EmailForm() {
           body: JSON.stringify({ email }),
         });
 
+        const responseData = await emailResponse.json();
+        console.log('Email API response:', responseData);
+
         if (!emailResponse.ok) {
-          console.error('Failed to send welcome email');
+          console.error('Failed to send welcome email:', responseData);
+          throw new Error('Failed to send welcome email');
         }
       } catch (error) {
         console.error('Error sending welcome email:', error);
+        toast({
+          title: "⚠️ Note",
+          description: "You're on the list, but we couldn't send the welcome email. Please try again later.",
+          className: "bg-white text-black border-none text-center",
+        });
+        return;
       }
 
       toast({
