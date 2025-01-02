@@ -28,26 +28,26 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    title: '96mins | Designers become freelancers together every Tuesday',
+    title: 'Designers become freelancers together every Tuesday for 96 mins',
     description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
     url: 'https://96mins.com',
-    siteName: '96mins',
+    siteName: '96Mins',
     images: [
       {
-        url: 'https://ucarecdn.com/a07a774f-1315-4ee0-b5bd-49dcf29d784d/-/preview/1000x525/',
-        width: 1000,
-        height: 525,
-        alt: '96mins - Get unstuck together every Tuesday @ 7am',
-      },
+        url: 'https://ucarecdn.com/97bd1550-d7f1-45a9-9c24-97c8f4be5c35/96SocialImage.png',
+        width: 1200,
+        height: 630,
+        alt: '96Mins - Designers become freelancers together'
+      }
     ],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '96mins | Designers become freelancers together every Tuesday',
+    title: 'Designers become freelancers together every Tuesday for 96 mins',
     description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
-    images: ['/og.svg'],
+    images: ['https://ucarecdn.com/97bd1550-d7f1-45a9-9c24-97c8f4be5c35/96SocialImage.png'],
   },
 }
 
