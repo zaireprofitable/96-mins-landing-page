@@ -18,7 +18,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: '96mins | Designers become freelancers together every Tuesday',
+  title: '96Mins | Designers become freelancers together every Tuesday',
   description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
   icons: [
     {
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    title: 'Designers become freelancers together every Tuesday for 96 mins',
+    title: 'Designers become freelancers together every Tuesday for 96Mins',
     description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
-    url: 'https://96mins.com',
+    url: 'https://96Mins.com',
     siteName: '96Mins',
     images: [
       {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Designers become freelancers together every Tuesday for 96 mins',
+    title: 'Designers become freelancers together every Tuesday for 96Mins',
     description: 'Weekly online and IRL sessions to land clients and launch your freelance career. Free freelancing course included.',
     images: ['https://ucarecdn.com/97bd1550-d7f1-45a9-9c24-97c8f4be5c35/96SocialImage.png'],
   },
