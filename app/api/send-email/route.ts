@@ -6,30 +6,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const { email } = await request.json();
-    console.log('Attempting to send email to:', email);
-    console.log('RESEND_API_KEY present:', !!process.env.RESEND_API_KEY);
-
-    // Add contact to Resend audience
-    try {
-      const audienceResponse = await fetch('https://api.resend.com/audiences/ed2a49b0-0f51-408e-81af-1df107ddaf59/contacts', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          first_name: email.split('@')[0], // Using part before @ as first name
-          subscribed: true,
-        })
-      });
-      
-      if (!audienceResponse.ok) {
-        console.error('Failed to add to audience:', await audienceResponse.text());
-      }
-    } catch (error) {
-      console.error('Error adding contact to Resend:', error);
-    }
 
     const { data, error } = await resend.emails.send({
       from: '96mins <onboarding@resend.dev>',
@@ -48,7 +24,7 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error('Resend email error:', error);
+      console.error('Email sending error:', error);
       return NextResponse.json({ error }, { status: 400 });
     }
 
