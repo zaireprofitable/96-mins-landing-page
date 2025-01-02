@@ -80,7 +80,7 @@ export default function Alternative() {
           <div className="text-center">
             {/* Hero heading with decorative stars */}
             <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-primary font-serif tracking-tighter relative px-2">
-            Designers become freelancers together every Tuesday for 96 mins
+              Designers become <span className="text-secondary">freelancers</span> together every Tuesday for 96 mins
             </h1>
 
             {/* Avatar grid */}
