@@ -52,18 +52,24 @@ export function EmailForm() {
           body: JSON.stringify({ email }),
         });
 
+        const responseData = await emailResponse.json();
+
+        if (!emailResponse.ok) {
+          throw new Error(responseData.error || 'Failed to send email');
+        }
+
         toast({
           title: "🎉 Success!",
           description: "You're on the list! Please check your email (including spam folder) for a welcome message.",
           className: "bg-white text-black border-none text-center",
-        })
+        });
       } catch (error) {
-        console.error('Error sending welcome email:', error)
+        console.error('Error sending welcome email:', error);
         toast({
-          title: "🎉 Success!",
-          description: "You're on the list! Please check your email shortly.",
+          title: "⚠️ Note",
+          description: "You're on the list! We'll send you a welcome email shortly.",
           className: "bg-white text-black border-none text-center",
-        })
+        });
       }
       
       setEmail('')
