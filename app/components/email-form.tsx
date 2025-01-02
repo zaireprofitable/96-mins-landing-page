@@ -17,7 +17,7 @@ export function EmailForm() {
 
     try {
       console.log('Attempting to insert:', email)
-      const { error, data } = await supabase
+      const { error: supabaseError, data } = await supabase
         .from('waitlist')
         .insert([
           { 
@@ -29,9 +29,9 @@ export function EmailForm() {
         ])
         .select()
 
-      if (error) {
-        console.error('Supabase error:', error)
-        if (error.message?.includes('duplicate key value violates unique constraint')) {
+      if (supabaseError) {
+        console.error('Supabase error:', supabaseError)
+        if (supabaseError.message?.includes('duplicate key value')) {
           toast({
             title: "Welcome Back! ✨",
             description: "Great to see your enthusiasm! You're already part of our Tuesday morning crew.",
@@ -40,14 +40,14 @@ export function EmailForm() {
           setEmail('')
           return
         }
-        throw error
+        throw supabaseError
       }
 
-      console.log('Success:', data)
+      console.log('Supabase success:', data)
       
       // Send welcome email
       try {
-        console.log('Attempting to send welcome email...');
+        console.log('Attempting to send welcome email...')
         const emailResponse = await fetch('/api/send-email', {
           method: 'POST',
           headers: {
@@ -56,34 +56,36 @@ export function EmailForm() {
           body: JSON.stringify({ email }),
         });
 
-        const responseData = await emailResponse.json();
-        console.log('Email API response:', responseData);
-
         if (!emailResponse.ok) {
-          console.error('Failed to send welcome email:', responseData);
-          throw new Error('Failed to send welcome email');
+          const errorData = await emailResponse.json();
+          console.error('Email API error:', errorData);
+          toast({
+            title: "Partial Success",
+            description: "You're on the list! Email confirmation might be delayed.",
+            className: "bg-white text-black border-none text-center",
+          })
+        } else {
+          toast({
+            title: "🎉 Success!",
+            description: "You're on the list! Please check your email (including spam folder) for a welcome message.",
+            className: "bg-white text-black border-none text-center",
+          })
         }
       } catch (error) {
-        console.error('Error sending welcome email:', error);
+        console.error('Error sending welcome email:', error)
         toast({
-          title: "⚠️ Note",
-          description: "You're on the list, but we couldn't send the welcome email. Please try again later.",
+          title: "Partial Success",
+          description: "You're on the list! Email confirmation might be delayed.",
           className: "bg-white text-black border-none text-center",
-        });
-        return;
+        })
       }
-
-      toast({
-        title: "🎉 Success!",
-        description: "You're on the list! Please check your email (including spam folder) for a welcome message.",
-        className: "bg-white text-black border-none text-center",
-      })
+      
       setEmail('')
     } catch (error: any) {
       console.error('Error:', error)
       toast({
         title: "❌ Error",
-        description: error?.message || "Something went wrong. Please try again.",
+        description: "Something went wrong. Please try again.",
         variant: "destructive",
         className: "bg-white text-black border-none text-center",
       })
