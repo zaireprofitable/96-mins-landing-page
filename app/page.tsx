@@ -145,7 +145,7 @@ export default function Alternative() {
 
             {/* Email signup form */}
             <div className="mb-1 px-2">
-              <EmailForm formType="general" />
+              <EmailForm formType="waitlist" />
             </div>
 
             {/* Connect on LinkedIn */}

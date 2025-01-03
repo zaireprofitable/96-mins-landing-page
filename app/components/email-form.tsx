@@ -7,10 +7,10 @@ import { supabase } from '@/lib/supabase/client'
 import { useToast } from '@/components/ui/use-toast'
 
 type EmailFormProps = {
-  formType?: 'portfolio-review' | 'general'
+  formType?: 'portfolio-review' | 'waitlist'
 }
 
-export function EmailForm({ formType = 'general' }: EmailFormProps) {
+export function EmailForm({ formType = 'waitlist' }: EmailFormProps) {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { toast } = useToast()
