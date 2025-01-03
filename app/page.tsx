@@ -68,19 +68,18 @@ export default function Alternative() {
   }, []);
 
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col bg-[#FBF9F6] text-foreground'>
       <div className='flex-1 flex items-center'>
         <div className='max-w-[560px] mx-auto px-4'>
-          {/* Header section with branding and social link */}
+          {/* Header section with branding */}
           <div className="pt-8 md:pt-19 text-center">
-            <h2 className="font-tanker text-[32px] tracking-[-0.10rem] md:text-[48px] md:tracking-[-0.15rem] text-secondary font-medium ">96Mins</h2>
+            <h2 className="font-tanker text-[32px] tracking-[-0.10rem] md:text-[48px] md:tracking-[-0.15rem] text-secondary font-medium">96Mins</h2>
           </div>
 
           {/* Main content section with centered layout */}
           <div className="text-center">
-            {/* Hero heading with decorative stars */}
-            <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1.1] tracking-sm mx-auto max-w-[90%] font-primary font-serif tracking-tighter relative px-2">
-              Designers become <span className="text-secondary">freelancers</span> together every Tuesday for 96mins
+            <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1] tracking-sm mx-auto font-primary font-serif tracking-tighter relative px-2 text-foreground font-light">
+              Designers become <span className="text-secondary">freelancers</span><br /> together every Tuesday
             </h1>
 
             {/* Avatar grid */}
@@ -140,17 +139,17 @@ export default function Alternative() {
             </div>
 
             {/* Description text */}
-            <p className="text-[1.25rem] sm:text-[1.25rem] md:text-[1.3rem] leading-[1.3] mt-2 mb-6 text-foreground font-sans">
-            Weekly online and IRL sessions to land clients and launch your freelance career. {/*Free freelancing course included.*/}
+            <p className="text-[1.25rem] sm:text-[1.25rem] md:text-[1.4rem] text-center text-foreground font-sans tracking-[-0.02em] leading-[130%] mt-2 mb-6">
+              Weekly online and IRL sessions to land clients<br /> and launch your freelance career.
             </p>
 
-            {/* Email signup form component */}
+            {/* Email signup form */}
             <div className="mb-1">
-              <EmailForm />
+              <EmailForm formType="waitlist" />
             </div>
 
             {/* Connect on LinkedIn */}
-            <span className="text-[18px] my-6 inline-flex items-center gap-1">
+            <span className="text-[16px] my-6 inline-flex items-center gap-1 text-gray-600">
               Connect on 
               <Link
                 href="https://www.linkedin.com/company/96mins"
@@ -158,14 +157,12 @@ export default function Alternative() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center transition-all duration-150 ease-in-out"
               >
-                <div className="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1 transition-all duration-150 ease-in-out hover:scale-95">
+                <div className="text-secondary hover:text-secondary/80 font-normal inline-flex items-center gap-1 transition-all duration-150 ease-in-out hover:scale-95">
                   <LinkedinLogo size={20} weight="fill" />
                   LinkedIn
                 </div>
               </Link>
             </span>
-
-           
           </div>
         </div>
       </div>

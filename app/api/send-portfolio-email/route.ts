@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const { email } = await request.json();
-    console.log('Sending welcome email to:', email);
+    console.log('Sending portfolio review email to:', email);
 
     if (!process.env.RESEND_API_KEY) {
       throw new Error('Missing RESEND_API_KEY');
@@ -15,11 +15,11 @@ export async function POST(request: Request) {
     const { data, error } = await resend.emails.send({
       from: 'Zaire from 96mins <zaire@96mins.com>',
       to: [email],
-      subject: 'Welcome to 96mins! 🚀',
+      subject: 'Your Free Portfolio Review is Coming! 🎨',
       html: `<!DOCTYPE html>
 <html>
 <head>
-<title>You're In! Thanks for joining</title>
+<title>Your Portfolio Review is Coming!</title>
 <!--[if !mso]><!-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!--<![endif]-->
@@ -33,19 +33,8 @@ export async function POST(request: Request) {
 </style>
 </head>
 <body lang="en" style="word-spacing:normal;background-color:#f4f2ee;">
-<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">We're thrilled to have you here!</div>
+<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">We'll review your portfolio and help you attract more clients!</div>
 <div style="background-color:#f4f2ee;">
-
-<!-- Blue Banner -->
-<div style="background:#006dff;margin:0px auto;max-width:600px;">
-  <table align="center" style="background:#006dff;width:100%;"><tr><td style="padding:8px 16px;">
-    <div style="text-align:center;">
-      <a href="#" style="color:#ffffff;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;text-decoration:underline;letter-spacing:-0.36px;">
-        Free Portfolio review for 48 hours!
-      </a>
-    </div>
-  </td></tr></table>
-</div>
 
 <!-- Main Content -->
 <div style="background:#fbf9f6;margin:0px auto;max-width:600px;">
@@ -58,18 +47,18 @@ export async function POST(request: Request) {
     <!-- Heading -->
     <div style="margin-bottom:16px;">
       <h1 style="margin:0;font-family:'Crimson Pro',serif;font-size:38px;font-weight:400;line-height:100%;letter-spacing:-1.9px;">
-        <span style="color:#006dff;">You're In!</span>
-        <span style="color:#222222;"> Thanks for joining</span>
+        <span style="color:#006dff;">Portfolio Review</span>
+        <span style="color:#222222;"> is Coming!</span>
       </h1>
       <p style="font-family:'Inter',sans-serif;font-size:16px;color:#777777;line-height:150%;letter-spacing:-0.48px;margin-top:12px;">
-        We're thrilled to have you here!
+        We'll help you improve your portfolio and attract more clients! 🎨
       </p>
     </div>
 
     <!-- Main Text -->
     <div style="margin-bottom:32px;">
       <p style="font-family:'Inter',sans-serif;font-size:16px;color:#222222;line-height:150%;letter-spacing:-0.48px;margin-bottom:16px;">
-        To make the most of your experience, we'd love to learn more about you. Completing our quick onboarding form helps us tailor resources, tips, and opportunities that fit your goals.
+        To help us provide the most valuable feedback for your portfolio, please take a moment to complete our quick onboarding form. This helps us understand your goals and tailor our review to your specific needs.
       </p>
 
       <!-- CTA Button -->
@@ -81,7 +70,7 @@ export async function POST(request: Request) {
     <!-- Footer Text -->
     <div style="margin-top:32px;">
       <p style="font-family:'Inter',sans-serif;font-size:14px;color:#222222;line-height:150%;letter-spacing:-0.42px;">
-        If you have any issues or would like to get in touch with the team, please reply directly to this email.
+        If you have any questions or need assistance, please reply directly to this email.
         <br><br>
         See you on Tuesday!<br>
         - Zaire
@@ -122,7 +111,7 @@ export async function POST(request: Request) {
     console.log('Email sent successfully:', data);
     return NextResponse.json({ data });
   } catch (error) {
-    console.error('Unexpected error in send-email:', error);
+    console.error('Unexpected error in send-portfolio-email:', error);
     return NextResponse.json({ error: error instanceof Error ? error.message : 'Unknown error' }, { status: 500 });
   }
 }
