@@ -70,20 +70,20 @@ export default function Alternative() {
   return (
     <div className='min-h-screen flex flex-col bg-[#FBF9F6] text-foreground'>
       <div className='flex-1 flex items-center'>
-        <div className='max-w-[560px] mx-auto px-4'>
+        <div className='w-full max-w-[560px] mx-auto px-4 py-6 md:py-0'>
           {/* Header section with branding */}
-          <div className="pt-8 md:pt-19 text-center">
-            <h2 className="font-tanker text-[32px] tracking-[-0.10rem] md:text-[48px] md:tracking-[-0.15rem] text-secondary font-medium">96Mins</h2>
+          <div className="pt-4 md:pt-19 text-center">
+            <h2 className="font-tanker text-[28px] tracking-[-0.08rem] md:text-[48px] md:tracking-[-0.15rem] text-secondary font-medium">96Mins</h2>
           </div>
 
           {/* Main content section with centered layout */}
           <div className="text-center">
-            <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1] tracking-sm mx-auto font-primary font-serif tracking-tighter relative px-2 text-foreground font-light">
-              Designers become <span className="text-secondary">freelancers</span><br /> together every Tuesday
+            <h1 className="text-[1.75rem] sm:text-[2.5rem] md:text-[3rem] leading-[1.1] sm:leading-[1] tracking-sm mx-auto font-primary font-serif tracking-tighter relative px-2 text-foreground font-light">
+              Designers become <span className="text-secondary">freelancers</span><br className="hidden sm:block" /> together every Tuesday
             </h1>
 
             {/* Avatar grid */}
-            <div className="flex flex-wrap justify-center gap-6 max-w-md mx-auto pt-12 pb-8">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-md mx-auto pt-8 sm:pt-12 pb-6 sm:pb-8">
               {isLoading ? (
                 <div className="col-span-full flex items-center justify-center py-8">
                   <LoadingAnimation />
@@ -139,17 +139,17 @@ export default function Alternative() {
             </div>
 
             {/* Description text */}
-            <p className="text-[1.25rem] sm:text-[1.25rem] md:text-[1.4rem] text-center text-foreground font-sans tracking-[-0.02em] leading-[130%] mt-2 mb-6">
-              Weekly online and IRL sessions to land clients<br /> and launch your freelance career.
+            <p className="text-[1.1rem] sm:text-[1.25rem] md:text-[1.4rem] text-center text-foreground font-sans tracking-[-0.02em] leading-[130%] mt-2 mb-6 px-2">
+              Weekly online and IRL sessions to land clients<br className="hidden sm:block" /> and launch your freelance career.
             </p>
 
             {/* Email signup form */}
-            <div className="mb-1">
+            <div className="mb-1 px-2">
               <EmailForm formType="general" />
             </div>
 
             {/* Connect on LinkedIn */}
-            <span className="text-[16px] my-6 inline-flex items-center gap-1 text-gray-600">
+            <span className="text-[14px] sm:text-[16px] my-4 sm:my-6 inline-flex items-center gap-1 text-gray-600">
               Connect on 
               <Link
                 href="https://www.linkedin.com/company/96mins"
@@ -166,7 +166,7 @@ export default function Alternative() {
           </div>
         </div>
       </div>
-      <div className="text-center text-sm text-gray-500 py-4">
+      <div className="text-center text-xs sm:text-sm text-gray-500 py-4 px-4">
         By the team behind <a href="https://handheld.design/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">Handheld Design</a>, <a href="https://sitesexplained.com" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">Sites Explained</a> and <a href="https://lovecircular.com" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">Love Circular</a>
       </div>
     </div>
