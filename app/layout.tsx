@@ -18,18 +18,16 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: '96mins | Designers become freelancers together every Tuesday',
-  description: 'Weekly online and IRL sessions to land clients and launch your freelance career.',
-  icons: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      url: '/favicon.ico',
-    },
-  ],
+  title: '96mins',
+  description: 'Designers become freelancers together every Tuesday.',
+  icons: {
+    icon: 'https://ucarecdn.com/9cbc99a2-6a9d-4e8a-af84-132afa1f3700/96Favicon.png',
+    shortcut: 'https://ucarecdn.com/9cbc99a2-6a9d-4e8a-af84-132afa1f3700/96Favicon.png',
+    apple: 'https://ucarecdn.com/9cbc99a2-6a9d-4e8a-af84-132afa1f3700/96Favicon.png',
+  },
   openGraph: {
-    title: 'Designers become freelancers together every Tuesday for 96mins',
-    description: 'Weekly online and IRL sessions to land clients and launch your freelance career.',
+    title: '96mins',
+    description: 'Designers become freelancers together every Tuesday.',
     url: 'https://96mins.com',
     siteName: '96mins',
     images: [
@@ -37,16 +35,15 @@ export const metadata: Metadata = {
         url: 'https://ucarecdn.com/5da79f72-ffde-45e6-97e7-54c81243c493/96SocialImage.png',
         width: 1200,
         height: 630,
-        alt: '96mins - Designers become freelancers together'
-      }
+      },
     ],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Designers become freelancers together every Tuesday for 96mins',
-    description: 'Weekly online and IRL sessions to land clients and launch your freelance career.',
+    title: '96mins',
+    description: 'Designers become freelancers together every Tuesday.',
     images: ['https://ucarecdn.com/5da79f72-ffde-45e6-97e7-54c81243c493/96SocialImage.png'],
   },
 }
