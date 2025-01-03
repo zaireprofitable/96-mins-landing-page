@@ -133,6 +133,7 @@ export function EmailForm({ formType = 'general' }: EmailFormProps) {
             {isSubmitting ? 'Joining...' : formType === 'portfolio-review' ? 'Join a session' : 'Join waitlist'}
           </Button>
         </form>
+        <p className="text-xs text-gray-500 mt-2">Please check your spam folder if you don't see our email.</p>
       </div>
     </div>
   )
