@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: '96mins <zaire@96mins.com>',
+      from: '96mins <onboarding@resend.dev>',
       to: [email],
       subject: 'Welcome to 96mins! 🚀',
       html: `<!DOCTYPE html>
