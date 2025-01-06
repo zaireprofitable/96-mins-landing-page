@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'Zaire from 96mins <zaire@96mins.com>',
+      from: '96mins <zaire@96mins.com>',
       to: [email],
       subject: 'Welcome to 96mins! 🚀',
       html: `<!DOCTYPE html>
@@ -115,8 +115,8 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error('Email sending error:', error);
-      return NextResponse.json({ error }, { status: 400 });
+      console.error('Resend API Error:', error);
+      return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
     console.log('Email sent successfully:', data);
