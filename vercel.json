@@ -1,0 +1,6 @@
+{
+  "crons": [{
+    "path": "/api/send-onboarding-reminder",
+    "schedule": "0 15 * * *"
+  }]
+}

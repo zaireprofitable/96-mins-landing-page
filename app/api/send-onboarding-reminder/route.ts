@@ -29,7 +29,7 @@ export async function POST(request: Request) {
       const { data: emailData, error: emailError } = await resend.emails.send({
         from: 'Zaire from 96mins <zaire@96mins.com>',
         to: [user.email],
-        subject: 'Quick favor while you're on the waitlist 🙏',
+        subject: 'Quick favor while you wait ✨',
         html: `<!DOCTYPE html>
 <html>
 <head>
