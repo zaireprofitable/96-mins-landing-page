@@ -35,71 +35,36 @@ export function EmailForm({ formType = 'waitlist' }: EmailFormProps) {
           description: "You're already on the list! Redirecting you to the onboarding form...",
           className: "bg-white text-black border-none text-center",
         })
-        // Still redirect them to the form
-        setTimeout(() => {
-          window.location.href = 'https://tally.so/r/mDABV5'
-        }, 2000)
+        window.location.href = 'https://tally.so/r/mDABV5'
         return
       }
 
-      // Always use the waitlist table, but add type field
-      const { data, error: dbError } = await supabase
+      // Insert new email
+      const { error: insertError } = await supabase
         .from('waitlist')
-        .insert([
-          { 
-            email: email.toLowerCase(),
-            created_at: new Date().toISOString(),
-            source: 'website',
-            status: 'pending',
-            type: formType // Add type field to distinguish portfolio review signups
-          }
-        ])
-        .select('*')
+        .insert([{ email: email.toLowerCase() }])
 
-      if (dbError) {
-        console.error('Detailed Database error:', {
-          message: dbError.message,
-          details: dbError.details,
-          hint: dbError.hint,
-          code: dbError.code
-        })
-        throw dbError
+      if (insertError) {
+        throw insertError
       }
 
-      console.log('Database insert successful:', data)
-
-      // Send welcome email using appropriate endpoint
-      const emailEndpoint = formType === 'portfolio-review' ? '/api/send-portfolio-email' : '/api/send-email'
-      console.log('Using email endpoint:', emailEndpoint)
-      
-      const emailResponse = await fetch(emailEndpoint, {
+      // Send welcome email
+      await fetch('/api/resend-welcome', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email: email.toLowerCase() }),
       })
-
-      const responseData = await emailResponse.json()
-      console.log('Email API response:', responseData)
-
-      if (!emailResponse.ok) {
-        throw new Error(responseData.error || 'Failed to send email')
-      }
 
       toast({
-        title: "🎉 Success!",
-        description: "You're on the list! Redirecting you to the onboarding form...",
+        title: "🎉 You're In!",
+        description: "Redirecting you to complete your application...",
         className: "bg-white text-black border-none text-center",
       })
-      
-      // Reset form
-      setEmail('')
-      
-      // Redirect to Tally form after a short delay
-      setTimeout(() => {
-        window.location.href = 'https://tally.so/r/mDABV5'
-      }, 2000)
+
+      // Redirect immediately to Tally form
+      window.location.href = 'https://tally.so/r/mDABV5'
 
     } catch (error) {
       console.error('Full error object:', error)
