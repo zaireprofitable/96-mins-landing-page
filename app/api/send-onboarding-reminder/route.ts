@@ -2,10 +2,23 @@ import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
+// Check for required environment variables
+if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+  throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL');
+}
+
+if (!process.env.SUPABASE_SERVICE_KEY) {
+  throw new Error('Missing SUPABASE_SERVICE_KEY');
+}
+
+if (!process.env.RESEND_API_KEY) {
+  throw new Error('Missing RESEND_API_KEY');
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_KEY
 );
 
 export async function POST(request: Request) {
