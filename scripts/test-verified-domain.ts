@@ -5,19 +5,20 @@ dotenv.config();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-async function resendWelcome(email: string) {
+async function main() {
   try {
     const { data, error } = await resend.emails.send({
       from: 'Zaire from 96mins <zaire@96mins.com>',
-      to: [email],
-      subject: 'Welcome to 96mins! 🚀',
+      to: ['allenzaire@gmail.com'],
+      subject: 'Test Email with Verified Domain',
       html: `<!DOCTYPE html>
-      <html>
-        <body>
-          <h1>Welcome to 96mins!</h1>
-          <p>We're thrilled to have you here!</p>
-        </body>
-      </html>`
+<html>
+<body>
+  <h1>Test Email with Verified Domain</h1>
+  <p>This is a test email to verify that sending from zaire@96mins.com works correctly.</p>
+  <p>If you receive this, the email system is working with the verified domain!</p>
+</body>
+</html>`
     });
 
     if (error) {
@@ -31,5 +32,4 @@ async function resendWelcome(email: string) {
   }
 }
 
-// Example usage:
-// resendWelcome('test@example.com');
+main();

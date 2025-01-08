@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json();
+    const { email, formType = 'waitlist' } = await request.json();
     console.log('Sending welcome email to:', email);
 
     if (!process.env.RESEND_API_KEY) {
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: '96mins <onboarding@resend.dev>',
+      from: 'Zaire from 96mins <zaire@96mins.com>',
       to: [email],
       subject: 'Welcome to 96mins! 🚀',
       html: `<!DOCTYPE html>
