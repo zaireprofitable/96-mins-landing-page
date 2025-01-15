@@ -43,6 +43,18 @@ export default function RootLayout({
           referrerPolicy="no-referrer-when-downgrade"
         />
       </noscript>
+
+      {/* Microsoft Clarity Analytics */}
+      <Script id="clarity-analytics" strategy="afterInteractive">
+        {`
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "pu2y9t4wum");
+        `}
+      </Script>
+
       <body className={`bg-[#FBF9F6] ${inter.className}`} suppressHydrationWarning={true}>
         {children}
         <Toaster />
