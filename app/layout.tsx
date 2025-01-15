@@ -31,10 +31,18 @@ export default function RootLayout({
       <Script 
         src="https://scripts.simpleanalyticscdn.com/latest.js"
         data-collect-dnt="true"
+        data-hostname="96mins.com"
         async
         defer
         strategy="afterInteractive"
       />
+      <noscript>
+        <img 
+          src="https://queue.simpleanalyticscdn.com/noscript.gif" 
+          alt=""
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </noscript>
       <body className={`bg-[#FBF9F6] ${inter.className}`} suppressHydrationWarning={true}>
         {children}
         <Toaster />
