@@ -1,0 +1,2 @@
+# Critical infrastructure files that require extra review
+app/layout.tsx @allenzaire  # Requires owner review due to critical analytics implementation

@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Toaster } from "@/components/ui/toaster"
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,6 +26,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
+      {/* CRITICAL: DO NOT REMOVE - Site Analytics Implementation */}
+      {/* This script is essential for business metrics and must remain in place */}
+      <Script 
+        src="https://scripts.simpleanalyticscdn.com/latest.js"
+        data-collect-dnt="true"
+        async
+        defer
+        strategy="afterInteractive"
+      />
       <body className={`bg-[#FBF9F6] ${inter.className}`} suppressHydrationWarning={true}>
         {children}
         <Toaster />
